@@ -1,0 +1,30 @@
+## Creating the table purchase_request and set id Primary Key
+CREATE TABLE purchase_request (
+    id BIGINT AUTO_INCREMENT NOT NULL,
+    requester VARCHAR(100) NOT NULL,
+    item_description VARCHAR(255),
+    product_value DOUBLE NOT NULL,
+    status VARCHAR(15) NOT NULL,
+    approved BOOLEAN,
+    disapproved BOOLEAN,
+    disapproved_message VARCHAR(100),
+    CONSTRAINT purchase_request_pk PRIMARY KEY (id)
+);
+);
+
+## Creating the table user and set id Primary Key
+CREATE TABLE user (
+    id BIGINT AUTO_INCREMENT NOT NULL,
+    name VARCHAR(50),
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    user_type VARCHAR(15) NOT NULL,
+    CONSTRAINT user_pk PRIMARY KEY (id)
+);
+
+#Inserting users defaults of the system
+INSERT INTO office_db.user (name, email, password, user_type) VALUES ('User Requester', 'requester@gmail.com', '1234', 'REQUESTER')
+
+INSERT INTO office_db.user (name, email, password, user_type) VALUES ('User Storekeeper', 'storekeeper@gmail.com', '4321', 'STOREKEEPER')
+
+INSERT INTO office_db.user (name, email, password, user_type) VALUES ('User Administrator', 'administrator@gmail.com', '1234', 'ADMINISTRATOR')
